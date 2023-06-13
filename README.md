@@ -2,24 +2,23 @@
 
 ## Implementation of 3D Viewer v1.0.
 
-In this project our team implemented a program to view 3D wireframe models (3D Viewer) in the C programming language. The models themselves can be loaded from .obj files and are viewable on the screen with the ability to rotate, scale and translate.
+В данном проекте наша команда реализовала на языке программирования Си программу для просмотра 3D моделей в каркасном виде (3D Viewer). Сами модели загружаются из файлов формата .obj и имеется возможность просматривать их на экране с возможностью вращения, масштабирования и перемещения.
 
-.Obj file is a geometry definition file format first developed by Wavefront Technologies. The file format is open and accepted by many 3D graphics application vendors.
-The .obj file format is a simple data format that represents only three-dimensional geometry, specifically the position of each vertex, the UV of each texture coordinate vertex, vertex normals and the faces that define each polygon as a list of vertices and texture vertices. Obj coordinates have no units, but Obj files can contain scale information in a readable comment line.
+Формат файла .obj - это простой формат данных, который представляет только трехмерную геометрию, а именно положение каждой вершины, положение UV координат текстуры каждой вершины, нормали вершин и грани, которые определяют каждый многоугольник как список вершин и вершин текстуры. Координаты obj не имеют единиц измерения, но файлы obj могут содержать информацию о масштабе в удобочитаемой строке комментариев.
 
-Affine transformations section describes basic affine transformations (translation, rotation, scaling) in the plane, using two-dimensional objects (images) as an example. Similarly, affine transformations can also be used for three-dimensional space.
-An affine transformation is a mapping in a plane or space onto itself in which parallel lines transforms into parallel lines, intersecting lines into intersecting lines, and skew lines into skew lines.
-A transformation in a plane is called affine if it is mutually unambiguous and the image of any line is a line. A transformation (mapping) is called mutually unambiguous (bijective) if it converts different points to different ones, and each point is converted to a point.
+Аффинное преобразование - отображение плоскости или пространства в себя, при котором параллельные прямые переходят в параллельные прямые, пересекающиеся — в пересекающиеся, скрещивающиеся — в скрещивающиеся. 
+Преобразование плоскости называется аффинным если оно взаимно однозначно и образом любой прямой является прямая. Преобразование (отображение) называется взаимно однозначным (биективным), если оно переводит разные точки в разные, и в каждую точку переходит какая-то точка.
 
-The 3d Viewer v1.0 program implemented:
-- The program built with Makefile which contains standard set of targets for GNU-programs: all, install, uninstall, clean, dvi, dist, tests, gcov
-- Prepared full coverage of modules related to calculating expressions with unit-tests using the Check library
-- GUI implementation, based on Qt
-- The graphical user interface contains: A button to select the model file and a field to output its name; a visualisation area for the wireframe model; button/buttons and input fields for translating the model; button/buttons and input fields for rotating the model; button/buttons and input fields for scaling the model; information about the uploaded model - file name, number of vertices and edges.
-- The program correctly processes and allows user to view models with details up to 100, 1000, 10,000, 100,000, 1,000,000  vertices without freezing (a freeze is an interface inactivity of more than 0.5 seconds)
-- The program allows customizing the type of projection (parallel and central)
-- The program allows setting up the type (solid, dashed), color and thickness of the edges, display method (none, circle, square), color and size of the vertices
-- The program allows choosing the background color
-- Settings can be saved between program restarts
-- The program allows saving the captured (rendered) images as bmp and jpeg files
-- The program allows recording small screencasts by a special button - the current custom affine transformation of the loaded object into gif-animation (640x480, 10fps, 5s)
+Разработана программа для визуализации каркасной модели в трехмерном пространстве:
+- Сборка программы настроена с помощью Makefile со стандартным набором целей для GNU-программ: all, install, uninstall, clean, dvi, dist, tests, gcov_report
+- Обеспечено покрытие unit-тестами модулей, связанных с загрузкой моделей и аффинными преобразованиями
+- В программе реализован графический пользовательский интерфейс на базе любой GUI-библиотеки Qt
+- Программа должна предоставляет возможность: загружать каркасную модель из файла формата obj (поддержка только списка вершин и поверхностей); перемещать модель на заданное расстояние относительно осей X, Y, Z; поворачивать модель на заданный угол относительно своих осей X, Y, Z; масштабировать модель на заданное значение
+- Графический пользовательский интерфейс содержит: кнопку для выбора файла с моделью и поле для вывода его названия; зону визуализации каркасной модели; кнопки и поля ввода для перемещения модели; кнопки и поля ввода для поворота модели; кнопки и поля ввода для масштабирования модели; информацию о загруженной модели - название файла, кол-во вершин и ребер
+- Программа корректно обрабатывает и позволяет пользователю просматривать модели с деталями до 100, 1000, 10 000, 100 000, 1 000 000 вершин без зависания (зависание - это бездействие интерфейса более 0,5 секунды)
+- Программа позволяет настраивать тип проекции (параллельная и центральная)
+- Программа позволяет настраивать тип (сплошная, пунктирная), цвет и толщину ребер, способ отображения (отсутствует, круг, квадрат), цвет и размер вершин
+- Программа позволяет выбирать цвет фона
+- Настройки сохраняются между перезапусками программы
+- Программа позволяеь сохранять полученные ("отрендеренные") изображения в файл в форматах bmp и jpeg
+- Программа позволяет по специальной кнопке записывать небольшие "скринкасты" - текущие пользовательские аффинные преобразования загруженного объекта в gif-анимацию (640x480, 10fps, 5s)
